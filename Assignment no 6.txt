@@ -1,0 +1,47 @@
+1.)create an schema bikedb with tables company,bike,country?
+
+SQL> 
+    CREATE TABLE `bike` (`ID` int(11) NOT NULL AUTO_INCREMENT,`NAME` varchar(256) NOT NULL,`TYPE` int(11) NOT NULL,`STATUS` varchar(256) DEFAULT NULL,`COMPANY` int(11) NOT NULL,
+    PRIMARY KEY (`ID`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+    INSERT INTO `bike` VALUES (1,'honda',2,'Active',1),(2,'Mustang GT',2,'Active',2),(3,'Q7',1,'Active',3),(4,'Tvs',2,'active',4);
+
+SQL>
+
+   CREATE TABLE `company` (`ID` int(11) NOT NULL AUTO_INCREMENT, `NAME` varchar(256) NOT NULL, `ORIGIN` varchar(256) NOT NULL,
+   `FOUND` int(11) NOT NULL,PRIMARY KEY (`ID`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+   INSERT INTO `company` VALUES (1,'BMW','Germany',1921),(2,'Bajaj','India',1945),(3,'Skoda','Czech Republic',1895),(4,'Hero','India',1984);
+
+SQL> 
+
+   CREATE TABLE `country`(ID int(11) NOT NULL,COUNTRY VARCHAR(256), Primary key(ID));
+
+   INSERT INTO country VALUES (1,'USA'), (2,'India'),(3,'India');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.) select bike from specific country with their company name and founding year?
+
+SQL>
+   
+    SELECT bike.ID,country.COUNTRY,company.NAME,company.FOUND from bike INNER JOIN company USING(ID) INNER JOIN country USING(ID) ORDER BY ID;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.)select bike from spsecific country with their status ?
+
+SQL>
+ 
+   SELECT bike.ID,company.NAME,country.COUNTRY,bike.STATUS from bike INNER JOIN company USING(ID) INNER JOIN country USING(ID) ORDER BY ID;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4.) select company from specific country ?  
+
+SQL>
+
+   SELECT bike.ID,company.NAME,country.COUNTRY from bike INNER JOIN company USING(ID) INNER JOIN country USING(ID) ORDER BY ID;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+			
+ 
+
+
