@@ -1,6 +1,8 @@
 1.)create an schema bikedb with tables company,bike,country?
 
 SQL> 
+    create schema bikedb;
+     
     CREATE TABLE `bike` (`ID` int(11) NOT NULL AUTO_INCREMENT,`NAME` varchar(256) NOT NULL,`TYPE` int(11) NOT NULL,`STATUS` varchar(256) DEFAULT NULL,`COMPANY` int(11) NOT NULL,
     PRIMARY KEY (`ID`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
